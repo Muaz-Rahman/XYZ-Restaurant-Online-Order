@@ -1,4 +1,4 @@
 file to keep notes of important points or thoughts that might help solving the problem in coding.
 MUST BE DELETED ONCE ALL THE FUNCTIONAL GOALS HAVE BEEN REACHED
 
-//TO-DO: for functionality, it will be better to add the database folder in the repository as well.s
+//TO-DO: for functionality, it will be better to add the database folder in the repository as well.
