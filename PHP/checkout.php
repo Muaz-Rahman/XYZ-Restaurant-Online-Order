@@ -1,16 +1,12 @@
 <?php
 $arr = $_POST["arr"] ?? null;
-//if (!isset($arr)) {
-//    header("Location:menu.php");
-//}
+if (!isset($arr)) {
+    header("Location:menu.php");
+}
 
 $con = new mysqli("localhost","root","","xyz_order_db");
 if($con->connect_error) die("Connection to database has failed");
-
 $item_name =  $item_price = "";
-
-
-//$sql_writer->store_result();
 session_start();
 ?>
 
@@ -21,14 +17,14 @@ session_start();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Checkout Page</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/Hero-Carousel-images.css">
-    <link rel="stylesheet" href="assets/css/Navbar-Right-Links-icons.css">
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/Hero-Carousel-images.css">
+    <link rel="stylesheet" href="../assets/css/Navbar-Right-Links-icons.css">
 </head>
 
-<body style="background: var(--bs-border-color);">
+<body style="background: var(--bs-border-color);" onload="refresh_price()">
     <nav class="navbar navbar-light navbar-expand-md sticky-top py-3" id="mainNav" style="background: var(--bs-gray-500);position: sticky;">
-        <div class="container-fluid"><a class="navbar-brand d-flex align-items-center" href="#"><span style="margin-right: 5%"><img src="assets/img/logo.png" width="40px" height="60px"></span><span>XYZ Food Orders</span></a>
+        <div class="container-fluid"><a class="navbar-brand d-flex align-items-center" href="#"><span style="margin-right: 5%"><img src="../assets/img/logo.png" width="40px" height="60px"></span><span>XYZ Food Orders</span></a>
             <div class="collapse navbar-collapse" id="navcol-2">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"></li>
@@ -39,7 +35,7 @@ session_start();
     </nav>
     <section class="py-4 py-xl-5">
         <div class="container">
-            <div class="border rounded border-0 d-flex flex-column justify-content-center align-items-center p-4 py-5" style="background: linear-gradient(rgba(0,123,255,0.2), rgba(0,123,255,0.2)), url(assets/img/checkout.webp) center / cover;height: 500px;">
+            <div class="border rounded border-0 d-flex flex-column justify-content-center align-items-center p-4 py-5" style="background: linear-gradient(rgba(0,123,255,0.2), rgba(0,123,255,0.2)), url(../assets/img/checkout.webp) center / cover;height: 500px;">
                 <div class="row">
                     <div class="col-md-10 col-xl-8 text-center d-flex d-sm-flex d-md-flex justify-content-center align-items-center mx-auto justify-content-md-start align-items-md-center justify-content-xl-center">
                         <div>
@@ -66,8 +62,8 @@ session_start();
                 echo "
             <div class='row'>
                 <div class='col'>
-                    <h1>$item_name</h1><label class='form-label' style='font-size: 20px;'>Quantity:</label><input class='form-control' type='text' value='1' style='width: 30%;'>
-                    <p style='margin-top: 30px;'>BDT $item_price</p>
+                    <h1>$item_name</h1><label class='form-label' style='font-size: 20px;'>Quantity:</label><input class='form-control price-input' type='text' value='1' style='width: 30%;'>
+                    <p  class='price-output' style='margin-top: 30px;'>BDT $item_price</p>
                 </div>
             </div>
             ";
@@ -80,8 +76,8 @@ session_start();
         </div>
 
         <div class="container" style="margin-bottom: 5%;">
-            <h1>Total: 1000 BDT</h1>
-            <button class="btn btn-primary" type="button" style="margin-top: 3%" onclick="">Refresh</button>
+            <h1 id='totalprice'>Total:</h1>
+            <button class="btn btn-primary" type="button" style="margin-top: 3%" onclick="refresh_price()">Refresh Prices</button>
         </div>
         <div class="container" style="margin-bottom: 35px;margin-top: 4%;">
             <div class="row text-center">
@@ -109,7 +105,8 @@ session_start();
             <p class="text-muted mb-0">Copyright © 2022 XYZ Restaurant</p>
         </div>
     </footer>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/scripts/checkout.js"></script>
 </body>
 
 </html>

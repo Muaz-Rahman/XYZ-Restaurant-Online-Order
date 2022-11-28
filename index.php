@@ -15,10 +15,10 @@
     <div class="container-fluid"><a class="navbar-brand d-flex align-items-center" href="#"><span style="margin-right: 5%"><img src="assets/img/logo.png" width="40px" height="60px"></span><span>XYZ Food Orders</span></a><button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div id="navcol-2" class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link active" href="menu.php">Today's Menu</a></li>
+                <li class="nav-item"><a class="nav-link active" href="PHP/menu.php">Today's Menu</a></li>
                 <li class="nav-item"><a class="nav-link" href="#" style="color: var(--bs-navbar-active-color);">Contact Us</a></li>
-            </ul><a class="btn btn-primary ms-md-2" role="button" href="login_page.php">Log In</a>
-            <a class="btn btn-primary ms-md-2" role="button" href="signup_page.php" style="margin-left: 2%;">Sign Up</a>
+            </ul><a class="btn btn-primary ms-md-2" role="button" href="PHP/login_page.php">Log In</a>
+            <a class="btn btn-primary ms-md-2" role="button" href="PHP/signup_page.php" style="margin-left: 2%;">Sign Up</a>
 
         </div>
     </div>

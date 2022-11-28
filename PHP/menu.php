@@ -12,9 +12,9 @@ $choice = "";
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Today's Menu</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/Hero-Carousel-images.css">
-    <link rel="stylesheet" href="assets/css/Navbar-Right-Links-icons.css">
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/Hero-Carousel-images.css">
+    <link rel="stylesheet" href="../assets/css/Navbar-Right-Links-icons.css">
 </head>
 
 <?php
@@ -28,7 +28,7 @@ $sql_writer->store_result();
 
 <body>
     <nav class="navbar navbar-light navbar-expand-md sticky-top py-3" id="mainNav" style="background: var(--bs-gray-500);position: sticky;">
-        <div class="container-fluid"><a class="navbar-brand d-flex align-items-center" href="index.php"><span style="margin-right: 5%"><img src="assets/img/logo.png" width="40px" height="60px"></span><span>XYZ Food Orders</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container-fluid"><a class="navbar-brand d-flex align-items-center" href="../index.php"><span style="margin-right: 5%"><img src="../assets/img/logo.png" width="40px" height="60px"></span><span>XYZ Food Orders</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-2">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="feedback_form.php" style="color: var(--bs-navbar-active-color);">Contact Us</a></li>
@@ -38,7 +38,7 @@ $sql_writer->store_result();
     </nav>
     <section class="py-4 py-xl-5">
         <div class="container">
-            <div class="border rounded border-0 d-flex flex-column justify-content-center align-items-center p-4 py-5" style="background: linear-gradient(rgba(0,123,255,0.2), rgba(0,123,255,0.2)), url(assets/img/menu_header.webp) center / cover;height: 500px;">
+            <div class="border rounded border-0 d-flex flex-column justify-content-center align-items-center p-4 py-5" style="background: linear-gradient(rgba(0,123,255,0.2), rgba(0,123,255,0.2)), url(../assets/img/menu_header.webp) center / cover;height: 500px;">
                 <div class="row">
                     <div class="col-md-10 col-xl-8 text-center d-flex d-sm-flex d-md-flex justify-content-center align-items-center mx-auto justify-content-md-start align-items-md-center justify-content-xl-center">
                         <div>
@@ -103,7 +103,7 @@ $sql_writer->store_result();
             <p class="text-muted mb-0">Copyright © 2022 XYZ Restaurant</p>
         </div>
     </footer>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>
