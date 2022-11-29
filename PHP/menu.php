@@ -13,7 +13,6 @@ $choice = "";
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Today's Menu</title>
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/css/Hero-Carousel-images.css">
     <link rel="stylesheet" href="../assets/css/Navbar-Right-Links-icons.css">
 </head>
 
