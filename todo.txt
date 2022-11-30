@@ -11,12 +11,17 @@ MUST BE DELETED ONCE ALL THE FUNCTIONAL GOALS HAVE BEEN REACHED
     order_amount
     order_address
 
-//TO-DO: I need to create the form-feedback table
-form_name
-form_phone
-form_email
-form_message
 
+//TO-DO: The pages still without a frontend are:
+user account page - will contain the records of their orders and the messages that they sent. probably one page will suffice.
+
+admin account page - this page will allow the admins to
+-view messages. the messages should be possible to be sorted by date, by user's name and email address
+-to update the active menu. update here means see the list of items and check/uncheck the active ones
+-to add a new item in the menu (check the food table to know which inputs need to be accommodated)
+
+order success page
+signup success page
 
 <script>
                                     function changePassword() {

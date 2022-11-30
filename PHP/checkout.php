@@ -49,7 +49,7 @@ session_start();
     </section>
     <h1 class="text-center" style="margin-bottom: 50px;"><span style="color: rgb(8, 153, 84);">Please Confirm Your Order</span></h1>
 
-    <form>
+    <form action="order_success.php" method="post">
         <div class="container" style="margin-top: 11px;margin-bottom: 27px;">
             <?php
             foreach ($arr as $value) {
@@ -62,7 +62,7 @@ session_start();
                 echo "
             <div class='row'>
                 <div class='col'>
-                    <h1>$item_name</h1><label class='form-label' style='font-size: 20px;'>Quantity:</label><input class='form-control price-input' type='text' value='1' style='width: 30%;'>
+                    <h1>$item_name</h1><label class='form-label' style='font-size: 20px;'>Quantity:</label><input class='form-control price-input' type='number' value='1' min='0' style='width: 30%;'>
                     <p  class='price-output' style='margin-top: 30px;'>BDT $item_price</p>
                 </div>
             </div>
@@ -81,7 +81,7 @@ session_start();
         </div>
         <div class="container" style="margin-bottom: 35px;margin-top: 4%;">
             <div class="row text-center">
-                <div class="col"><button class="btn btn-primary" type="button" style="background: var(--bs-green);">Place Order</button></div>
+                <div class="col"><button class="btn btn-primary" type="submit" style="background: var(--bs-green);">Place Order</button></div>
                 <div class="col"><a href="menu.php" style="font-size: 1.2rem; color: red">Missed an item? Go Back</a></div>
             </div>
         </div>

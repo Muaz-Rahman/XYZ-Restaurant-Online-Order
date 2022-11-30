@@ -60,7 +60,7 @@ $sql_writer->store_result();
                 $sql_writer->fetch();
                 echo(
                 " <div class= 'row mb-lg-5'>
-                <div class='col' style='margin-top: 5px;'><img class='img-fluid rounded-1' width='300' height='300' style='margin-bottom: 30px;margin-top: 0px;' src=  $item_pic  ></div>
+                <div class='col' style='margin-top: 5px;'><img class='img-fluid rounded-1' width='300' height='300' style='margin-bottom: 30px;' src=  $item_pic  ></div>
                 <div class='col'>
                     <h1> $item_name</h1>
                     <p> $item_description </p>
