@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light navbar-expand-md py-3" style="background: #b087f4;">
+    <nav class="navbar navbar-light sticky-top navbar-expand-md py-3" style="background: #b087f4;">
         <div class="container"><a class="navbar-brand d-flex align-items-center" href="../index.php"><span><img src="../assets/img/logo.png" style="width: 40px;height: 60px;margin-right: 2%;"></span><span>XYZ Orders Admin Panel</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-2">
                 <ul class="navbar-nav ms-auto"></ul>
@@ -34,6 +34,7 @@
                             <th>Phone No.</th>
                             <th>Quantity</th>
                             <th>Address</th>
+                            <th>Bill</th>
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -44,6 +45,7 @@
                             <td>1234</td>
                             <td>Burger 3</td>
                             <td>Cell 3 Middle of nowhere</td>
+                            <td>200 BDT</td>
                             <td><input type="checkbox"></td>
                         </tr>
                     </tbody>
@@ -61,6 +63,7 @@
                         <th>Email</th>
                         <th>Phone No.</th>
                         <th>Quantity</th>
+                        <th>Bill</th>
                         <th>Address</th>
                     </tr>
                 </thead>
@@ -70,6 +73,7 @@
                         <td>abcd@abcd</td>
                         <td>1234</td>
                         <td>Burger 3</td>
+                        <td>200 BDT</td>
                         <td>Cell 3 Middle of nowhere</td>
                     </tr>
                 </tbody>

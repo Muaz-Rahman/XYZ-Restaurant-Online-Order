@@ -6,18 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>User Home</title>
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/Navbar-Right-Links-icons.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-light navbar-expand-md py-3" style="background: #adb5bd;">
-        <div class="container"><img src="../assets/img/logo.png" style="width: 40px;height: 60px;margin-right: 2%;"><a class="navbar-brand d-flex align-items-center" href="../index.php"><span>XYZ Food Orders</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <nav class="navbar navbar-light navbar-expand-md sticky-top py-3" style="background: #adb5bd;">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="../index.php"><img src="../assets/img/logo.png" style="width: 40px;height: 60px;margin-right: 2%;"><span>XYZ Food Orders</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-2">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#" style="color: var(--bs-black);">Settings</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" style="color: var(--bs-black);">Orders</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="#">Comments</a></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
                 </ul><a class="btn btn-primary ms-md-2" role="button" href="#">Log Out</a>
             </div>
         </div>
@@ -41,6 +39,7 @@
                         <th>Order Id</th>
                         <th>Date Ordered</th>
                         <th>Amount Ordered</th>
+                        <th>Sum Total</th>
                         <th>Delivery Location</th>
                     </tr>
                 </thead>
@@ -54,31 +53,14 @@
                                 <li>Pizza - 1</li>
                             </ul>
                         </td>
+                        <td>200 BDT</td>
                         <td>29 th street in the middle of nowhere</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
-    <div class="container">
-        <h1 style="text-align: center;margin-top: 5%;">Your Comments:</h1>
-        <div class="table-responsive" style="margin-top: 5%;">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th style="text-align: center;min-width: 40px;">#</th>
-                        <th style="text-align: center;">Message</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td style="text-align: center;">1</td>
-                        <td style="text-align: center;">An amazing experience that I will never forget</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+
     <footer class="text-center py-4" style="margin-top: 3%;">
         <div class="container">
             <div class="row">
