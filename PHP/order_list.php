@@ -6,33 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Checkout</title>
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/Navbar-Right-Links-icons.css">
+
 </head>
 
 <body>
+    <nav class="navbar navbar-light navbar-expand-md py-3" style="background: #b087f4;">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="../index.php"><span><img src="../assets/img/logo.png" style="width: 40px;height: 60px;margin-right: 2%;"></span><span>XYZ Orders Admin Panel</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-2">
+                <ul class="navbar-nav ms-auto"></ul>
+                <a class="btn btn-primary ms-md-2" role="button" href="#">Log Out</a>
+            </div>
+        </div>
+    </nav>
     <div class="container">
-        <h1 style="text-align: center;margin-top: 3%;">Your order has been placed successfully!</h1>
+        <h1 style="text-align: center;margin-top: 3%;">Orders Listing Page</h1>
     </div>
     <div class="container" style="margin-top: 4%;">
-        <h2 style="text-align: center;margin-bottom: 3%;">Order Details</h2>
+        <h5 style="text-align: left;margin-bottom: 3%;">Note: The orders are sorted by date, from the latest to the oldest.</h5>
+        <form action="" method="post">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">Order Id</th>
+                            <th>Email</th>
+                            <th>Phone No.</th>
+                            <th>Quantity</th>
+                            <th>Address</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align: center;">Burger</td>
+                            <td>abcd@abcd</td>
+                            <td>1234</td>
+                            <td>Burger 3</td>
+                            <td>Cell 3 Middle of nowhere</td>
+                            <td><input type="checkbox"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div><button class="btn btn-primary" type="button">Update Order Status</button>
+        </form>
+    </div>
+    <div class="container" style="margin-top: 4%;">
+        <h5 style="text-align: left;margin-bottom: 3%;">List of completed orders:</h5>
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th style="text-align: center;">Item Name</th>
-                        <th style="text-align: center;">Quantity</th>
+                        <th style="text-align: center;">Order Id</th>
+                        <th>Email</th>
+                        <th>Phone No.</th>
+                        <th>Quantity</th>
+                        <th>Address</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td style="text-align: center;">Burger</td>
-                        <td style="text-align: center;">1</td>
+                        <td>abcd@abcd</td>
+                        <td>1234</td>
+                        <td>Burger 3</td>
+                        <td>Cell 3 Middle of nowhere</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
     <div class="container" style="margin-top: 5%;margin-bottom: 5%;">
-        <h3 class="text-center"><a href="../index.php">Go back to home page</a>&nbsp;</h3>
+        <h3 class="text-center"><a href="#">Go back to admin home page</a>&nbsp;</h3>
     </div>
     <footer class="text-center py-4">
         <div class="container">
@@ -62,7 +107,7 @@
             </div>
         </div>
     </footer>
-
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>

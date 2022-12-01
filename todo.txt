@@ -1,27 +1,12 @@
 file to keep notes of important points or thoughts that might help solving the problem in coding.
 MUST BE DELETED ONCE ALL THE FUNCTIONAL GOALS HAVE BEEN REACHED
 
-//TO-DO: for functionality, it will be better to add the database folder in the repository as well. DONE
-//TO-DO: now I need to design the database table for storing order information
-    I need to understand the things I require to recreate the entire order. The possible columns are
-    user_id
-    order_id
-    order_date
-    food_id
-    order_amount
-    order_address
-
 
 //TO-DO: The pages still without a frontend are:
-user account page - will contain the records of their orders and the messages that they sent. probably one page will suffice.
+common page for showing success
 
-admin account page - this page will allow the admins to
--view messages. the messages should be possible to be sorted by date, by user's name and email address
--to update the active menu. update here means see the list of items and check/uncheck the active ones
--to add a new item in the menu (check the food table to know which inputs need to be accommodated)
 
-order success page
-signup success page
+
 
 <script>
                                     function changePassword() {

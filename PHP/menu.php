@@ -65,7 +65,7 @@ $sql_writer->store_result();
                     <h1> $item_name</h1>
                     <p> $item_description </p>
                     <p><b>BDT $item_price </b></p>
-                    <input type='checkbox' name='arr[]' value=$item_name style='width: 50px;height: 50px;'>
+                    <input type='checkbox' name='arr[]' value=$item_id style='width: 50px;height: 50px;'>
                 </div>
             </div>"
                 );

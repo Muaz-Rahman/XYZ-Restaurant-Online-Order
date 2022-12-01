@@ -21,6 +21,7 @@
             </div>
         </div>
     </nav>
+
     <section class="shadow contact-clean" style="background: rgb(3,77,139);">
         <div class="row">
             <div class="col-md-10 col-xl-8 text-center d-flex d-sm-flex d-md-flex justify-content-center align-items-center mx-auto justify-content-md-start align-items-md-center justify-content-xl-center">
@@ -30,16 +31,17 @@
                 </div>
             </div>
         </div>
-        <form class="bg-light border rounded border-secondary shadow-lg" method="post" style="background: rgb(248,248,249);">
+        <form class="bg-light border rounded border-secondary shadow-lg" method="post" action="form_success.php" style="background: rgb(248,248,249);">
             <h2 class="text-center">Contact us</h2>
-            <div class="form-group mb-3"><input class="form-control" type="text" name="name" placeholder="Name"></div>
-            <div class="form-group mb-3"><input class="form-control" type="text" name="phone" placeholder="Phone" inputmode="tel"></div>
-            <div class="form-group mb-3"><input class="form-control" type="email" name="email" placeholder="Email"></div>
-            <div class="form-group mb-3"><textarea class="form-control" name="message" placeholder="Message" rows="14"></textarea></div>
+            <div class="form-group mb-3"><input class="form-control" type="text" name="name" placeholder="Name" required></div>
+            <div class="form-group mb-3"><input class="form-control" type="text" name="phone" placeholder="Phone" required></div>
+            <div class="form-group mb-3"><input class="form-control" type="email" name="email" placeholder="Email" required></div>
+            <div class="form-group mb-3"><textarea class="form-control" name="message" placeholder="Message" rows="14" required></textarea></div>
             <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">This message is regarding a problem that needs assistance</label></div>
             <div class="form-group mb-3"><button class="btn btn-primary" type="submit">send </button></div>
         </form>
     </section>
+
     <footer class="text-center bg-dark">
         <div class="container text-white py-4 py-lg-5" style="margin-top: -8px;margin-bottom: -8px;">
             <ul class="list-inline">

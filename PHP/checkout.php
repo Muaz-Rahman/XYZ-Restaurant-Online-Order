@@ -53,7 +53,7 @@ session_start();
         <div class="container" style="margin-top: 11px;margin-bottom: 27px;">
             <?php
             foreach ($arr as $value) {
-                $sql_writer = $con->prepare("SELECT item_name,item_price FROM menu_table WHERE item_name='$value'");
+                $sql_writer = $con->prepare("SELECT item_name,item_price FROM menu_table WHERE item_id=$value");
                 if (!$sql_writer) echo "failed";
                 $sql_writer->execute();
                 $sql_writer->bind_result($item_name, $item_price);

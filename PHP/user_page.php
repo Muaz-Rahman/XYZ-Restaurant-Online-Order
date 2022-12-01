@@ -73,7 +73,7 @@
                 <tbody>
                     <tr>
                         <td style="text-align: center;">1</td>
-                        <td>An amazing experience that I will never forget</td>
+                        <td style="text-align: center;">An amazing experience that I will never forget</td>
                     </tr>
                 </tbody>
             </table>
