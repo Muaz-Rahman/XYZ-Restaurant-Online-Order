@@ -1,13 +1,13 @@
 <?php
+session_start();
 $arr = $_POST["arr"] ?? null;
 if (!isset($arr)) {
     header("Location:menu.php");
 }
-
+$_SESSION["checkout_array"] = $arr;
 $con = new mysqli("localhost","root","","xyz_order_db");
 if($con->connect_error) die("Connection to database has failed");
 $item_name =  $item_price = "";
-session_start();
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +62,8 @@ session_start();
                 echo "
             <div class='row'>
                 <div class='col'>
-                    <h1>$item_name</h1><label class='form-label' style='font-size: 20px;'>Quantity:</label><input class='form-control price-input' type='number' value='1' min='0' style='width: 30%;'>
+                    <h1>$item_name</h1><label class='form-label' style='font-size: 20px;'>Quantity:</label>
+                    <input class='form-control price-input' type='number' value='1' min='1' style='width: 30%;' name='$value'>
                     <p  class='price-output' style='margin-top: 30px;'>BDT $item_price</p>
                 </div>
             </div>
@@ -72,7 +73,7 @@ session_start();
         </div>
 
         <div class="container" style="margin-bottom: 3%">
-            <label class='form-label' style='font-size: 20px;'>Your Address:</label><textarea class="form-control" style="resize: none; height: 150px" > </textarea>
+            <label class='form-label' style='font-size: 20px;'>Your Address:</label><textarea class="form-control" name="address" style="resize: none; height: 150px" required></textarea>
         </div>
 
         <div class="container" style="margin-bottom: 5%;">

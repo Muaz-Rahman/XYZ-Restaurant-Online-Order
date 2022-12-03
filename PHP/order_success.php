@@ -1,3 +1,10 @@
+<?php
+session_start();
+$con = new mysqli("localhost","root","","xyz_order_db");
+if($con->connect_error) die("Connection to database has failed");
+$item_name =  $item_price = "";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,13 +30,36 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td style="text-align: center;">Burger</td>
-                        <td style="text-align: center;">1</td>
-                    </tr>
+                <?php
+                $sum_total = $item_total = 0;
+                foreach ($_SESSION["checkout_array"] as $value) {
+                    $sql_writer = $con->prepare("SELECT item_name,item_price FROM menu_table WHERE item_id=$value");
+                    if (!$sql_writer) echo "failed";
+                    $sql_writer->execute();
+                    $sql_writer->bind_result($item_name, $item_price);
+                    $sql_writer->fetch();
+                    $sql_writer->close();
+                    echo ("<tr>
+                        <td style='text-align: center;'>$item_name</td>
+                        <td style='text-align: center;'>$_POST[$value]</td>
+                    </tr>");
+                    $item_total = 0;
+                    $item_total=$item_price*$_POST[$value];
+                    $sum_total+=$item_price*$_POST[$value];
+                    $address = $_POST['address'];
+                    $order_amount = $_POST[$value];
+                    $date = date('Y-m-d H:i:s');
+                    $sql_writer = $con->prepare("INSERT INTO order_table ( food_id, order_date, order_amount, order_address, order_total) VALUES (?,?,?,?,?);");
+                    $sql_writer->bind_param("isisi",$value, $date, $order_amount, $address, $item_total);
+                    $sql_writer->execute();
+                    $sql_writer->close();
+                }
+                ?>
                 </tbody>
             </table>
         </div>
+
+        <h2 class="mt-4">Net payable: <?=$sum_total?> BDT</h2>
     </div>
     <div class="container" style="margin-top: 5%;margin-bottom: 5%;">
         <h3 class="text-center"><a href="../index.php">Go back to home page</a>&nbsp;</h3>

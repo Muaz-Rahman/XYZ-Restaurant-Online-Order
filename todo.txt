@@ -5,7 +5,35 @@ MUST BE DELETED ONCE ALL THE FUNCTIONAL GOALS HAVE BEEN REACHED
 //TO-DO: The pages still without a frontend are:
 common page for showing success
 
+now comes the backend part. for backend, first comes the easier data pulling works.
+data is pulled from the server in adminpage, ordersuccess, orderlist and userpage (apparently)
 
+once the data pullings are ok, data insertion queries will be created.
+
+adminpage will show orders divided by complete and incomplete
+            will show comments divided by support or by date (default choice)
+
+/////////WARNING: the order table column user_id has temporarily been set with a default value of 1 for quick setup of other features.
+checkout ---> order_success
+ordersuccess will show the order that has just been completed by the user. will take form data from checkout.php
+ordersuccess will both show some values AND create another entry in the order table
+for order success, I need to show names of the item and quantity of the item
+will have to calculate the sum total of the order. for that I also need the unit price as well
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+last will be the authentication portion.
 
 
 <script>
