@@ -23,20 +23,16 @@
                                 <h2 class="text-center" style="margin-bottom: 20px;color: #38414b;">
                                     Sign up, and get quality food delivered to your doorsteps</h2>
                                 <div class="form-group mb-3"><label class="form-label" style="margin-bottom: 10px;margin-top: 10px;color: #505E6C;"><strong>Email</strong><br></label>
-                                    <input class="form-control" type="text" style="margin-bottom: 20px;" placeholder="yourname@gmail.com">
-                                </div>
-                                <div class="form-group mb-3"><label class="form-label" style="margin-bottom: 10px;margin-top: 10px;color: #505E6C;"><strong>Phone Number</strong><br></label>
-                                    <input class="form-control" type="text" style="margin-bottom: 20px;" placeholder="01812345678">
+                                    <input class="form-control" type="text" style="margin-bottom: 20px;" placeholder="yourname@gmail.com" name="email">
                                 </div>
 
+                                <div class="form-group mb-3"><label class="form-label" style="margin-bottom: 10px;margin-top: 10px;color: #505E6C;"><strong>Phone Number</strong><br></label>
+                                    <input class="form-control" type="text" style="margin-bottom: 20px;" placeholder="01812345678" name="phone">
+                                </div>
 
                                 <div class="form-group mb-3"><label class="form-label" style="margin-bottom: 10px;margin-top: 10px;color: #505E6C;"><strong>Password</strong></label>
-                                    <input class="form-control" type="password" id="password" placeholder="Use combination of number and letter" style="margin-bottom: 20px;" onchange="changePassword();">
+                                    <input class="form-control" type="password" id="password" placeholder="Use combination of number and letter" style="margin-bottom: 20px;" name="password">
                                 </div>
-                                <div class="form-group mb-3"><label class="form-label" style="margin-bottom: 10px;margin-top: 10px;color: #505E6C;"><strong>Confirm Password</strong></label>
-                                    <input class="form-control" type="password" id="confirmPassword" placeholder="Retype password" style="margin-bottom: 20px;" onchange="changePassword();">
-                                </div>
-                                <div id="passwordsError" class="form-group mb-3" style="display: none;margin-bottom: 18px;"><span id="errorMessage" class="text-danger" style="font-size:15px;">Text</span></div>
 
                                 <div class="row">
                                     <div class="col-md-3" style="margin-top: 20px;"><a class="btn btn-secondary d-block d-lg-flex justify-content-lg-center w-100" role="button" href="../index.php">Go Back</a></div>

@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+$con = new mysqli("localhost","root","","xyz_order_db");
+if($con->connect_error) die("Connection to database has failed");
+$email = $_POST["email"];
+$phone = $_POST["phone"];
+$password = $_POST["password"];
+$sql_writer = $con->prepare("INSERT INTO user_table (user_email, user_password, user_phone) VALUES (?,?,?)");
+$sql_writer->bind_param("sss", $email, $password, $phone);
+$sql_writer->execute();
+
 header("refresh:5; url = login_page.php");
 ?>
 
