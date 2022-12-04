@@ -48,9 +48,8 @@ $item_name =  $item_price = "";
                     $sum_total+=$item_price*$_POST[$value];
                     $address = $_POST['address'];
                     $order_amount = $_POST[$value];
-                    $date = date('Y-m-d H:i:s');
-                    $sql_writer = $con->prepare("INSERT INTO order_table ( food_id, order_date, order_amount, order_address, order_total) VALUES (?,?,?,?,?);");
-                    $sql_writer->bind_param("isisi",$value, $date, $order_amount, $address, $item_total);
+                    $sql_writer = $con->prepare("INSERT INTO order_table ( food_id, order_amount, order_address, order_total) VALUES (?,?,?,?);");
+                    $sql_writer->bind_param("iisi",$value, $order_amount, $address, $item_total);
                     $sql_writer->execute();
                     $sql_writer->close();
                 }

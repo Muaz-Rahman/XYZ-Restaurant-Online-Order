@@ -46,20 +46,34 @@ $order_id =  $email = $phone = $quantity = $address = $bill = $food_name = "";
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td style="text-align: center;">Burger</td>
-                            <td>abcd@abcd</td>
-                            <td>1234</td>
-                            <td>Burger 3</td>
-                            <td>Cell 3 Middle of nowhere</td>
-                            <td>200 BDT</td>
-                            <td><input type="checkbox"></td>
-                        </tr>
+                    <?php
+                    $sql_writer = $con->prepare("SELECT order_table.order_id, order_table.order_total, order_table.order_address, order_table.order_amount, user_table.user_email, user_table.user_phone, menu_table.item_name FROM order_table INNER JOIN user_table ON order_table.user_id = user_table.user_id INNER JOIN menu_table ON order_table.food_id = menu_table.item_id WHERE order_status=0 ORDER BY order_date DESC");
+                    if (!$sql_writer) echo "failed";
+                    $sql_writer->execute();
+                    $sql_writer->store_result();
+                    $sql_writer->bind_result($order_id, $bill, $address, $quantity, $email, $phone, $food_name);
+                    for ($i = 0; $i < $sql_writer->num_rows; $i++) {
+                        $sql_writer->fetch();
+                        echo "
+                <tr>
+                    <td style='text-align: center;'>$order_id</td>
+                    <td>$email</td>
+                    <td>$phone</td>
+                    <td>$food_name: $quantity</td>
+                    <td>$address</td>
+                    <td>$bill BDT</td>
+                    <td><input type='checkbox'></td>
+                    <tr>";
+                    }
+                    $sql_writer->free_result();
+                    $sql_writer->close();
+                    ?>
                     </tbody>
                 </table>
             </div><button class="btn btn-primary" type="button">Update Order Status</button>
         </form>
     </div>
+
     <div class="container" style="margin-top: 4%;">
         <h5 style="text-align: left;margin-bottom: 3%;">List of completed orders:</h5>
         <div class="table-responsive">
@@ -76,13 +90,12 @@ $order_id =  $email = $phone = $quantity = $address = $bill = $food_name = "";
                 </thead>
                 <tbody>
                 <?php
-                $sql_writer = $con->prepare("SELECT order_table.order_id, order_table.order_total, order_table.order_address, order_table.order_amount, user_table.user_email, user_table.user_phone, menu_table.item_name FROM order_table INNER JOIN user_table ON order_table.user_id = user_table.user_id INNER JOIN menu_table ON order_table.food_id = menu_table.item_id WHERE order_status=1");
-                if(!$sql_writer) echo "failed";
+                $sql_writer = $con->prepare("SELECT order_table.order_id, order_table.order_total, order_table.order_address, order_table.order_amount, user_table.user_email, user_table.user_phone, menu_table.item_name FROM order_table INNER JOIN user_table ON order_table.user_id = user_table.user_id INNER JOIN menu_table ON order_table.food_id = menu_table.item_id WHERE order_status=1 ORDER BY order_date DESC");
                 $sql_writer->execute();
                 $sql_writer->store_result();
                 $sql_writer->bind_result($order_id, $bill, $address, $quantity, $email, $phone, $food_name);
-                $sql_writer->fetch();
                 for ($i=0; $i<$sql_writer->num_rows;$i++) {
+                    $sql_writer->fetch();
                     echo "
                 <tr>
                     <td style='text-align: center;'>$order_id</td>
@@ -93,7 +106,6 @@ $order_id =  $email = $phone = $quantity = $address = $bill = $food_name = "";
                     <td>$address</td>
                 </tr>
                 ";
-                    $sql_writer->fetch();
                 }
                 ?>
                 </tbody>
@@ -102,7 +114,7 @@ $order_id =  $email = $phone = $quantity = $address = $bill = $food_name = "";
     </div>
 
     <div class="container" style="margin-top: 5%;margin-bottom: 5%;">
-        <h3 class="text-center"><a href="#">Go back to admin home page</a>&nbsp;</h3>
+        <h3 class="text-center"><a href="admin_page.php">Go back to admin home page</a>&nbsp;</h3>
     </div>
     <footer class="text-center py-4">
         <div class="container">

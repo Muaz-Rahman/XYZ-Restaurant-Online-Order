@@ -32,12 +32,12 @@
             </div>
         </div>
         <form class="bg-light border rounded border-secondary shadow-lg" method="post" action="form_success.php" style="background: rgb(248,248,249);">
-            <h2 class="text-center">Contact us</h2>
+            <h2 class="text-center">Contact Us</h2>
             <div class="form-group mb-3"><input class="form-control" type="text" name="name" placeholder="Name" required></div>
             <div class="form-group mb-3"><input class="form-control" type="text" name="phone" placeholder="Phone" required></div>
             <div class="form-group mb-3"><input class="form-control" type="email" name="email" placeholder="Email" required></div>
             <div class="form-group mb-3"><textarea class="form-control" name="message" placeholder="Message" rows="14" required></textarea></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">This message is regarding a problem that needs assistance</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1" name="support" value="1"><label class="form-check-label" for="formCheck-1">This message is regarding a problem that needs assistance</label></div>
             <div class="form-group mb-3"><button class="btn btn-primary" type="submit">send </button></div>
         </form>
     </section>

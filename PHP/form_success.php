@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+$name = $_POST["name"];
+$email = $_POST["email"];
+$phone = $_POST["phone"];
+$message = $_POST["message"];
+$support = $_POST["support"];
+$con = new mysqli("localhost","root","","xyz_order_db");
+if($con->connect_error) die("Connection to database has failed");
+$sql_writer = $con->prepare("INSERT INTO messages_table (message_name, message_phone, message_email, message_content, message_type) VALUES (?,?,?,?,?)");
+$sql_writer->bind_param("ssssi", $name, $phone, $email, $message,$support);
+$sql_writer->execute();
+?>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
