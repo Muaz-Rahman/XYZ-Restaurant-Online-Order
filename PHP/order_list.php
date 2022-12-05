@@ -1,8 +1,16 @@
 <?php
 session_start();
+$email = $_SESSION["admin_email"];
+if(!isset($email)) header("Location: error.php");
+
+if (isset($_POST["logout"])){
+    session_unset();
+    session_destroy();
+    header("Location: ../index.php");
+}
+
 $con = new mysqli("localhost","root","","xyz_order_db");
 if($con->connect_error) die("Connection to database has failed");
-$order_id =  $email = $phone = $quantity = $address = $bill = $food_name = "";
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +30,9 @@ $order_id =  $email = $phone = $quantity = $address = $bill = $food_name = "";
         <div class="container"><a class="navbar-brand d-flex align-items-center" href="../index.php"><span><img src="../assets/img/logo.png" style="width: 40px;height: 60px;margin-right: 2%;"></span><span>XYZ Orders Admin Panel</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-2">
                 <ul class="navbar-nav ms-auto"></ul>
-                <a class="btn btn-primary ms-md-2" role="button" href="#">Log Out</a>
+                <form action="" method="post">
+                    <button class="btn btn-primary ms-md-2" name="logout">Log Out</button>
+                </form>
             </div>
         </div>
     </nav>

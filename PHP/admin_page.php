@@ -1,3 +1,14 @@
+<?php
+session_start();
+$email = $_SESSION["admin_email"];
+if(!isset($email)) header("Location: error.php");
+if (isset($_POST["logout"])){
+    session_unset();
+    session_destroy();
+    header("Location: ../index.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,12 +30,15 @@
                     <li class="nav-item"><a class="nav-link active" href="#">Comments</a></li>
                     <li class="nav-item"></li>
                     <li class="nav-item"></li>
-                </ul><a class="btn btn-primary ms-md-2" role="button" href="#">Log Out</a>
+                </ul>
+                <form action="" method="post">
+                    <button class="btn btn-primary ms-md-2" name="logout">Log Out</button>
+                </form>
             </div>
         </div>
     </nav>
     <div class="container">
-        <h1 style="margin-top: 2%;color: var(--bs-blue);margin-bottom: 3%;">Hello, Username</h1><a class="btn btn-secondary justify-content-lg-center" role="button" href="order_list.php">Go to order listing page</a>
+        <h1 style="margin-top: 2%;color: var(--bs-blue);margin-bottom: 3%;">Hello, <?=$email?> </h1><a class="btn btn-secondary justify-content-lg-center" role="button" href="order_list.php">Go to order listing page</a>
     </div>
     <div class="container">
         <h2 style="text-align: center;margin-top: 5%;margin-bottom: 3%;">Update the active menu</h2>

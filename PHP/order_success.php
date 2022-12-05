@@ -1,5 +1,8 @@
 <?php
 session_start();
+$email = $_SESSION["email"];
+if(!isset($email)) header("Location: error.php");
+
 $con = new mysqli("localhost","root","","xyz_order_db");
 if($con->connect_error) die("Connection to database has failed");
 $item_name =  $item_price = "";
@@ -31,7 +34,13 @@ $item_name =  $item_price = "";
                 </thead>
                 <tbody>
                 <?php
-                $sum_total = $item_total = 0;
+                $user_id = $sum_total = $item_total = 0;
+                $sql_writer = $con->prepare("SELECT user_id FROM user_table WHERE user_email = '$email'");
+                $sql_writer->bind_result($user_id);
+                $sql_writer->execute();
+                $sql_writer->fetch();
+                $sql_writer->close();
+
                 foreach ($_SESSION["checkout_array"] as $value) {
                     $sql_writer = $con->prepare("SELECT item_name,item_price FROM menu_table WHERE item_id=$value");
                     if (!$sql_writer) echo "failed";
@@ -48,11 +57,12 @@ $item_name =  $item_price = "";
                     $sum_total+=$item_price*$_POST[$value];
                     $address = $_POST['address'];
                     $order_amount = $_POST[$value];
-                    $sql_writer = $con->prepare("INSERT INTO order_table ( food_id, order_amount, order_address, order_total) VALUES (?,?,?,?);");
-                    $sql_writer->bind_param("iisi",$value, $order_amount, $address, $item_total);
+                    $sql_writer = $con->prepare("INSERT INTO order_table ( user_id, food_id, order_amount, order_address, order_total) VALUES (?,?,?,?,?);");
+                    $sql_writer->bind_param("iiisi",$user_id, $value, $order_amount, $address, $item_total);
                     $sql_writer->execute();
                     $sql_writer->close();
                 }
+                    $con->close();
                 ?>
                 </tbody>
             </table>

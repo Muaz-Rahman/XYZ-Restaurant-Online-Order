@@ -15,13 +15,13 @@ adminpage will show orders divided by complete and incomplete
 
 /////////WARNING: the order table column user_id has temporarily been set with a default value of 1 for quick setup of other features.
 
-
+currently working on the login_page. normal user authentication is done. need to fix the connected pages.
+need to authenticate admins next as well.
+currently I need to show a user his orders.
 
 
 <a class="btn btn-secondary justify-content-lg-center" role="button" href="order_list.php">Go to order listing page</a>
 
-$con = new mysqli("localhost","root","","xyz_order_db");
-if($con->connect_error) die("Connection to database has failed");
 
 $sql_writer = $con->prepare("SELECT item_name,item_price FROM menu_table WHERE item_id=$value");
                     if (!$sql_writer) echo "failed";

@@ -1,6 +1,9 @@
 <?php
 session_start();
-$arr = $_POST["arr"] ?? null;
+$email = $_SESSION["email"];
+if (!isset($email)) header("Location: login_page.php");
+
+$arr = $_SESSION["checkout_array"] = $_POST["arr"] ?? null;
 if (!isset($arr)) {
     header("Location:menu.php");
 }

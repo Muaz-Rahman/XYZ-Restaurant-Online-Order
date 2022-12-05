@@ -1,3 +1,16 @@
+<?php
+session_start();
+$email = $_SESSION["email"];
+if(!isset($email)) header("Location: error.php");
+if (isset($_POST["logout"])){
+    session_unset();
+    session_destroy();
+    header("Location: ../index.php");
+}
+$con = new mysqli("localhost","root","","xyz_order_db");
+if($con->connect_error) die("Connection to database has failed");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,23 +27,23 @@
         <div class="container"><a class="navbar-brand d-flex align-items-center" href="../index.php"><img src="../assets/img/logo.png" style="width: 40px;height: 60px;margin-right: 2%;"><span>XYZ Food Orders</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-2">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#" style="color: var(--bs-black);">Settings</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" style="color: var(--bs-black);">Orders</a></li>
-                </ul><a class="btn btn-primary ms-md-2" role="button" href="#">Log Out</a>
+                    <li class="nav-item"><a class="nav-link" href="#settings" style="color: var(--bs-black);">Settings</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#orders" style="color: var(--bs-black);">Orders</a></li>
+                </ul><form action="" method="post"><button class="btn btn-primary ms-md-2" name="logout">Log Out</button></form>
             </div>
         </div>
     </nav>
-    <div class="container">
-        <h1 style="margin-top: 2%;color: var(--bs-blue);margin-bottom: 3%;">Hello, Username</h1>
+    <div class="container" id="settings">
+        <h1 style="margin-top: 2%;color: var(--bs-blue);margin-bottom: 3%;">Hello, <?=$email?></h1>
     </div>
-    <div class="container">
-        <h1 style="text-align: center;margin-top: 5%;margin-bottom: 3%;">Account Settings:&nbsp;</h1>
+    <div class="container" >
+        <h1 style="text-align: center;margin-top: 5%;margin-bottom: 3%;" >Account Settings:&nbsp;</h1>
         <form><label class="form-label">Settings to be changed:</label><select class="form-select" style="margin-bottom: 3%;max-width: 400px;">
                 <option value="12" selected="">Phone Number</option>
                 <option value="13">Password</option>
             </select><label class="form-label">Enter new value here:</label><input class="form-control" type="text" style="max-width: 500px;"><button class="btn btn-primary" type="button" style="margin-top: 3%;">Submit changes</button></form>
     </div>
-    <div class="container" style="margin-bottom: 5%;">
+    <div class="container" style="margin-bottom: 5%;" id="orders">
         <h1 style="text-align: center;margin-top: 5%;">Your Past Orders:</h1>
         <div class="table-responsive" style="margin-top: 5%;">
             <table class="table table-bordered">
@@ -44,18 +57,27 @@
                     </tr>
                 </thead>
                 <tbody>
+
+                <?php
+                $sql_writer = $con->prepare("SELECT order_id, order_date, order_amount, order_total, order_address FROM order_table WHERE user_id = (SELECT user_id FROM user_table WHERE user_email = '$email') ORDER BY order_date DESC");
+                $sql_writer->bind_result($order_id, $order_date, $order_amount, $order_total, $order_address);
+                $sql_writer->execute();
+                $sql_writer->store_result();
+                for ($i = 0; $i < $sql_writer->num_rows; $i++) {
+                    $sql_writer->fetch();
+                    echo ("
                     <tr>
-                        <td>1234</td>
-                        <td>10/29/2022</td>
-                        <td>
-                            <ul>
-                                <li>Burger - 1</li>
-                                <li>Pizza - 1</li>
-                            </ul>
-                        </td>
-                        <td>200 BDT</td>
-                        <td>29 th street in the middle of nowhere</td>
+                        <td>$order_id</td>
+                        <td>$order_date</td>
+                        <td>$order_amount</td>
+                        <td>$order_total</td>
+                        <td>$order_address</td>
                     </tr>
+                    ");
+                }
+                $sql_writer->free_result();
+                $sql_writer->close();
+                ?>
                 </tbody>
             </table>
         </div>

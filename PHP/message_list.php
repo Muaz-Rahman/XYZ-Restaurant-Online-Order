@@ -1,12 +1,24 @@
 <?php
+session_start();
+$email = $_SESSION["admin_email"];
+if(!isset($email)) header("Location: error.php");
+
+if (isset($_POST["logout"])){
+    session_unset();
+    session_destroy();
+    header("Location: ../index.php");
+}
+
 $con = new mysqli("localhost","root","","xyz_order_db");
 if($con->connect_error) die("Connection to database has failed");
 $message_type = $_POST["result_method"];
+
 $message_type_text = "";
 if ($message_type==0){
     $message_type_text = "feedback";
 }
 else $message_type_text = "support ticket";
+
 $message_id = $message_name = $message_phone = $message_email = $message_content = $message_time = "";
 $sql_writer = $con->prepare("SELECT message_id, message_name, message_phone, message_email, message_content, message_time FROM messages_table WHERE message_type=$message_type ORDER BY message_time DESC");
 if (!$sql_writer) echo "failed";
@@ -32,7 +44,10 @@ $sql_writer->store_result();
     <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><img src="../assets/img/logo.png" style="width: 40px;height: 60px;margin-right: 2%;"><span>XYZ Orders Admin Panel</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navcol-2">
             <ul class="navbar-nav ms-auto">
-            </ul><a class="btn btn-primary ms-md-2" role="button" href="#">Log Out</a>
+            </ul>
+            <form action="" method="post">
+                <button class="btn btn-primary ms-md-2" name="logout">Log Out</button>
+            </form>
         </div>
     </div>
 </nav>
