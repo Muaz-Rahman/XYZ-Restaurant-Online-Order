@@ -5,11 +5,11 @@ $name = $_POST["name"];
 $email = $_POST["email"];
 $phone = $_POST["phone"];
 $message = $_POST["message"];
-$support = $_POST["support"];
+$support = $_POST["support"] ?? 0;
 $con = new mysqli("localhost","root","","xyz_order_db");
 if($con->connect_error) die("Connection to database has failed");
 $sql_writer = $con->prepare("INSERT INTO messages_table (message_name, message_phone, message_email, message_content, message_type) VALUES (?,?,?,?,?)");
-$sql_writer->bind_param("ssssi", $name, $phone, $email, $message,$support);
+$sql_writer->bind_param("ssssi", $name, $phone, $email, $message, $support);
 $sql_writer->execute();
 ?>
 <head>

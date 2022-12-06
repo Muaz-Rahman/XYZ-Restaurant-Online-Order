@@ -71,7 +71,7 @@ $item_name =  $item_price = "";
         <h2 class="mt-4">Net payable: <?=$sum_total?> BDT</h2>
     </div>
     <div class="container" style="margin-top: 5%;margin-bottom: 5%;">
-        <h3 class="text-center"><a href="../index.php">Go back to home page</a>&nbsp;</h3>
+        <h3 class="text-center"><a href="user_page.php">Go back to account home page</a>&nbsp;</h3>
     </div>
     <footer class="text-center py-4">
         <div class="container">
