@@ -2,4 +2,12 @@
 
 An online food ordering system for an imaginary restaurant named XYZ. The website displays the user menu list of the day, a contact form for feedbacks and most importantly, the page that allows them to add foods to their carts and then order them once finished.
 
-The database files containing pre-existing dummy data are located in the Database Files for quick setup without the hassle of creating new database. For XAMPP, the folder inside Database Files needs to be put inside the XAMPP/mysql/data folder.
+The sql_script folder contains an existing database which can be directly imported in phpmyadmin by creating a database named xyz_order_db.
+
+User account:
+Email: mrf@mrf.com
+Password: abcd
+
+Admin account:
+Email: abcd@abcd.com
+Password: 12341234
